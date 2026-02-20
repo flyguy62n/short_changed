@@ -9,7 +9,8 @@ This script reads ShortKeys text files and converts them to CSV format compatibl
 ## Features
 
 - Process single files or entire directories
-- Configurable preface character for abbreviations
+- Automatically strips leading special characters from original abbreviations
+- Configurable preface character for transformed abbreviations
 - Proper handling of multi-line snippets
 - Automatic CSV quote escaping
 - UTF-8 encoding support
@@ -115,6 +116,14 @@ More replacement text
 ...
 ```
 
+**Note on Abbreviation Processing:**
+
+The script automatically strips any leading special characters (like `$`, `;`, `!`, etc.) from the abbreviation in the source file before prepending your chosen `PrefaceChar`. This means:
+
+- `<ITEM NAME>$abc123` with `-PrefaceChar ";"` → `;abc123`
+- `<ITEM NAME>abc123` with `-PrefaceChar ";"` → `;abc123`
+- `<ITEM NAME>!abc123` with `-PrefaceChar ";"` → `;abc123`
+
 ## TextExpander CSV Format
 
 The generated CSV follows TextExpander's import format:
@@ -125,20 +134,20 @@ The generated CSV follows TextExpander's import format:
 
 Example output:
 ```csv
-;vpcwp,"Line 1
+;my_shortkey,"Line 1
 Line 2
 Line 3"
-;rdcrouters,"MRHMOND1XR01
-MRHMOND1YR17
-aa02-asr01-hx"
+;abc123,"ABC
+123"
 ```
 
 ## Importing into TextExpander
 
-1. Run the script to generate your CSV file(s)
+1. Export each of your ShortKeys files (Text Format) into a single folder
+2. Run the script to generate your CSV file(s)
 2. Open the TextExpander website
 3. Click on "Import/Export"
-4. Drag/drop the CSV file on to the import page
+4. Drag/drop the CSV files on to the import page
 
 ## Requirements
 
