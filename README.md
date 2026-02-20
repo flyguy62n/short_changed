@@ -76,7 +76,7 @@ Get-Help about_Execution_Policies
 ```powershell
 .\short_changed.ps1 -Path "C:\Export\shortcuts.txt"
 ```
-Output: `C:\Export\shortcuts.csv` with abbreviations like `;vpcwp`, `;rdcrouters`, etc.
+Output: `C:\Export\shortcuts.csv` with abbreviations like `;abc123`, `;def456`, etc.
 
 **Convert with custom output location:**
 ```powershell
@@ -93,13 +93,13 @@ This creates a .csv file for each .txt file found in the directory.
 ```powershell
 .\short_changed.ps1 -Path "shortcuts.txt" -PrefaceChar "$"
 ```
-Output abbreviations: `$vpcwp`, `$rdcrouters`, etc.
+Output abbreviations: `$abc123`, `$def456`, etc.
 
 **Use no preface character:**
 ```powershell
 .\short_changed.ps1 -Path "shortcuts.txt" -PrefaceChar ""
 ```
-Output abbreviations: `vpcwp`, `rdcrouters`, etc.
+Output abbreviations: `abc123`, `def456`, etc.
 
 ## ShortKeys File Format
 
@@ -134,7 +134,7 @@ The generated CSV follows TextExpander's import format:
 
 Example output:
 ```csv
-;my_shortkey,"Line 1
+;line123,"Line 1
 Line 2
 Line 3"
 ;abc123,"ABC
